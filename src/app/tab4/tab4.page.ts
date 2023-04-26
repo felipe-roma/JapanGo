@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ActionSheetController, ModalController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { ModalPagePage } from '../modal-page/modal-page.page';
+import { Capacitor } from '@capacitor/core';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-tab4',
@@ -17,6 +19,7 @@ export class Tab4Page {
   email: any
   name: any
   userprofile: any = {}
+  image: any;
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
@@ -78,13 +81,13 @@ export class Tab4Page {
 
   alterarImagem() {
     const foto = document.getElementById("foto")
-    if (this.nivel > 19 && this.nivel < 46) {      
+    if (this.nivel > 19 && this.nivel < 46) {
       foto?.setAttribute("src", "./../../assets/img/nivel20.png")
     } else if (this.nivel > 45 && this.nivel < 71) {
       foto?.setAttribute("src", "./../../assets/img/nivel46.png")
     } else if (this.nivel > 70 ) {
       foto?.setAttribute("src", "./../../assets/img/nivelFinal.png")
-    }    
+    }
   }
 
   ouvir() {
@@ -99,5 +102,22 @@ export class Tab4Page {
       '../../../assets/audio/somDeFundo/botao-katana.mp3',
     )
     audioAbertura.play()
+  }
+
+  async takePicture() {
+    try {
+      if(Capacitor.getPlatform() != 'web') await Camera.requestPermissions();
+      const image = await Camera.getPhoto({
+        quality: 90,
+        //allowEditing: false,
+        source: CameraSource.Prompt,
+        width: 600,
+        resultType: CameraResultType.DataUrl
+      });
+      console.log('iamge', image);
+      this.image = image.dataUrl
+    } catch(e) {
+      console.log(e)
+    }
   }
 }
