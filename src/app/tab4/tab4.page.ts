@@ -71,6 +71,7 @@ export class Tab4Page {
   }
 
   async logout() {
+    this.botao()
     await this.authService.logout()
     this.router.navigateByUrl('login', { replaceUrl: true })
   }
@@ -91,5 +92,12 @@ export class Tab4Page {
       const a = new Audio('../../../assets/audio/yamete_kudasai.mp3');
       a.play();
     }
+  }
+
+  botao() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
+    )
+    audioAbertura.play()
   }
 }

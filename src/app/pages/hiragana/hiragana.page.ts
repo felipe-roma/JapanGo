@@ -1,7 +1,6 @@
 import { AuthService } from './../../services/auth.service'
 import { Component, OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
-import { Firestore } from '@angular/fire/firestore'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-hiragana',
@@ -175,6 +174,7 @@ export class HiraganaPage implements OnInit {
 
 
   jogar(n: string) {
+    this.botao()
     this.router.navigateByUrl('/nova-carta/' + n)
   }
 
@@ -256,4 +256,12 @@ export class HiraganaPage implements OnInit {
       this.n70 = this.niveis[70]
     })
   }
+
+  botao() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
+    )
+    audioAbertura.play()
+  }
+
 }

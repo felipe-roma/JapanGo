@@ -11,7 +11,7 @@
   <div class="conteudo">
     <ion-list>
       <ion-card class="animate__animated animate__fadeInRight">
-        <ion-item class="animate__animated animate__pulse animate__infinite animate__delay-3s" color="dark" button detail="true" [routerLink]="['/hiragana']">
+        <ion-item class="animate__animated animate__pulse animate__infinite animate__delay-3s" color="dark" button detail="true" [routerLink]="['/hiragana']" (click)="botao()">
           HIRAGANA
         </ion-item>
       </ion-card>
@@ -26,5 +26,11 @@
         </ion-item>
       </ion-card>
     </ion-list>
+    <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button color="dark" (click)="tocar()">
+        <ion-icon *ngIf="mudo == false" name="volume-high-outline"></ion-icon>
+        <ion-icon *ngIf="mudo == true" name="volume-mute-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab> -->
   </div>
 </ion-content>

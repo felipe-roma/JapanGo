@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button (click)="botao()"></ion-back-button>
     </ion-buttons>
     <div class="bloqueioDeClick"></div>   
     <ion-range id="range" max="90" value="{{p}}"></ion-range>

@@ -11,4 +11,11 @@ export class TabelaHiraganaPage implements OnInit {
 
   ngOnInit() {}
 
+  botao() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
+    )
+    audioAbertura.play()
+  }
+
 }

@@ -446,6 +446,7 @@ export class CartaPage implements OnInit {
   }
 
   responder(r: string, id: string) {
+    this.btn()
     const e = document.querySelector(`#${id}`)
     e?.classList.add('animate__animated', 'animate__zoomOut', 'animate__fast')
     this.resposta = this.romaji[this.hiragana.indexOf(r)]
@@ -704,4 +705,20 @@ export class CartaPage implements OnInit {
       console.log('Erro', 'Erro na atualizacao no nivel')
     }
   }
+
+  botao() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
+    )
+    audioAbertura.play()
+  }
+
+  btn() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/click.wav',
+    )
+    audioAbertura.play()
+  }
+
+  // https://www.pacdv.com/sounds/
 }

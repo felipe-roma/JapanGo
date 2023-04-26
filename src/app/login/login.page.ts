@@ -79,6 +79,7 @@ export class LoginPage implements OnInit {
   // }
 
   async login() {
+    this.botao()
     const loading = await this.loadingController.create()
     await loading.present()
 
@@ -101,6 +102,7 @@ export class LoginPage implements OnInit {
 
   // ------- Método de Cadastro de Usuario ------------
   async register() {
+    this.botao()
     const loading = await this.loadingController.create()
     await loading.present()
 
@@ -232,6 +234,13 @@ export class LoginPage implements OnInit {
     // handler: (res: any) => {
     //   this.authService.addUser(user: { id: res.user.uid, email: res.user.email, name: aleatorio });
     // }
+  }
+
+  botao() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
+    )
+    audioAbertura.play()
   }
 
   tocar() {

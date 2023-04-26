@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="danger">
     <ion-buttons>
-      <ion-back-button></ion-back-button>
+      <ion-back-button (click)="botao()"></ion-back-button>
       <ion-title>HIRAGANA</ion-title>
       <ion-badge color="dark" slot="end">Nv. {{profile.nivel}}</ion-badge>
     </ion-buttons>
@@ -11,7 +11,7 @@
 <ion-content>
   <ion-list lines="none">
     <ion-card>
-      <ion-item color="medium" button detail="true" [routerLink]="['/tutorial']">
+      <ion-item (click)="botao()" color="medium" button detail="true" [routerLink]="['/tutorial']">
         Tutorial
       </ion-item>
     </ion-card>

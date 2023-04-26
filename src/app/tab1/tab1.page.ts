@@ -12,6 +12,7 @@ export class Tab1Page {
   result: string | undefined
   nivel: any
   userprofile: any = {}
+  public mudo = true
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
@@ -20,7 +21,7 @@ export class Tab1Page {
   ) {}
 
   ngOnInit() {
-    this.tocar();
+    this.tocar()
     this.authService.getUserProfile().subscribe((data) => {
       this.userprofile = data
       this.nivel = this.userprofile.nivel
@@ -62,10 +63,22 @@ export class Tab1Page {
   }
 
   tocar() {
+    this.botao
+    const audio = new Audio('../../../assets/audio/somDeFundo/Lobby.mp3')
+    audio.play()
+    audio.volume = 0.1
+    audio.loop = true
+    // if (this.mudo == false) {
+    //   this.mudo = !this.mudo
+    // } else {     
+    //   this.mudo = !this.mudo
+    // }
+  }
+
+  botao() {
     const audioAbertura = new Audio(
-      '../../../assets/audio/somDeFundo/Lobby.mp3',
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
     )
-    audioAbertura.volume = 0.2
     audioAbertura.play()
   }
 }

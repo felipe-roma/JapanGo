@@ -43,7 +43,7 @@ export class ModalPagePage implements OnInit {
   }
 
   async confirm() {
-    console.log(this.name);
+    this.botao()
     
     const auth = getAuth()
     const user = auth.currentUser
@@ -67,6 +67,13 @@ export class ModalPagePage implements OnInit {
       console.log('Erro', 'Erro na atualizacao no nivel')
     }
     this.modalCtrl.dismiss();
+  }
+
+  botao() {
+    const audioAbertura = new Audio(
+      '../../../assets/audio/somDeFundo/botao-katana.mp3',
+    )
+    audioAbertura.play()
   }
 
 }
