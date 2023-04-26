@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title align="center">TUTORIAL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-title class="dica" align="center">Memorize o ideograma:</ion-title>
+    <ion-row>
+      <div class="hiragana">
+        あ
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-title align="center">Pronúncia:</ion-title>
+      <div class="romaji">
+        A
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class="audio">
+        <ion-button fill="clear" onclick="document.getElementById('player').play()">
+          <ion-icon color="medium" size="large" slot="icon-only" name="volume-high-sharp"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-row>
+  </ion-grid>
+  <audio id="player">
+    <source src="../../../assets/audio/a.mp3">
+  </audio>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button color="tertiary" fill="clear" [routerLink]="['/hiragana']">VOLTAR</ion-button>
+        </ion-col>
+        <ion-col offset="3">
+          <ion-button color="tertiary" fill="clear" [routerLink]="['/carta-tutorial']">PRÓXIMO</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+code {
+  white-space: pre-wrap;
+}
+
+ion-list {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.conteudo {
+  width: 100%;
+  height: 100%;
+  background-image: url('./../../assets/img/backgroundMenor.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cabecalho-nivel{
+  margin-right: 10px;
+}

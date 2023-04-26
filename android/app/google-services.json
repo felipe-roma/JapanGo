@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "734655835479",
+    "project_id": "teste-banco-2-3a3c6",
+    "storage_bucket": "teste-banco-2-3a3c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734655835479:android:50838b261edcc6e808a212",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734655835479-iq5uff97ongmga9chtum2jnkggete3gd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC28-1oIdjOm3mO0hko_ldrpF99uW-8O3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734655835479-iq5uff97ongmga9chtum2jnkggete3gd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

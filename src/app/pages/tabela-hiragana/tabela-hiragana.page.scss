@@ -1,0 +1,34 @@
+.descricao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-style: outset;
+    border-width: 3px;
+    border-radius: 10px;
+}
+
+.hiragana {
+    font-size: 20px;
+}
+
+.romaji {
+    font-size: 12px;
+}
+
+.descricao:active {
+  background-color: rgb(244,245,248);
+  transform: translateY(4px);
+}
+
+.centralizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem {
+    width: 150px;
+    height: fit-content;
+    margin-top: 10px;
+}

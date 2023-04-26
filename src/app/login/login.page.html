@@ -1,0 +1,69 @@
+<ion-content class="ion-padding animated fadeIn login auth-page">
+
+  <div class="auth-content">
+
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <h4 no-margin>
+        <h1 class="text-titulo1-login center">JapanGo</h1>
+          <ion-img class="img-login center" src="../../assets/japan.png"></ion-img>
+          <h2 *ngIf="registerUser == true" class="text-titulo-login center">Cadastro</h2>
+       </h4>
+    </div>
+
+    <!-- Login form -->
+    <form [formGroup]="credentials">
+    <div  class="list-form">
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="mail" item-start></ion-icon>
+          E-mail
+        </ion-label>
+        <ion-input color="dark" type="text" formControlName="email" placeholder="exemplo@gmail.com"></ion-input>
+      </ion-item>
+
+      <ion-item no-padding class="animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock-closed" item-start></ion-icon>
+          Senha
+        </ion-label>
+        <ion-input color="dark" type="password" formControlName="password" placeholder="Senha com 6 digitos"></ion-input>
+      </ion-item>
+      </div>
+    </form>
+
+    <br><br>
+
+    <div>
+      <ion-button *ngIf="registerUser == false" icon-left size="medium" expand="full" shape="round" color="dark" (click)="login()"  tappable>
+        <!-- <ion-icon name="log-in"></ion-icon> -->
+        Login
+      </ion-button>
+      <!-- <ion-button icon-left size="medium" expand="full" shape="round" color="danger" (click)="googleLoginWeb()"  tappable>
+        <ion-icon name="logo-google"></ion-icon>
+        Google
+      </ion-button> -->
+      <hr>
+
+      <!-- ATUAL (Funcional) -->
+      <ion-button *ngIf="registerUser == true"  expand="full" shape="round" color="light" (click)="register()" tappable>
+        Cadastrar
+      </ion-button>
+
+      <!-- EXEMPLO (Não funcional) -->
+      <ion-button *ngIf="registerUser == false" expand="full" shape="round" color="light" (click)="register2()" tappable>
+        Cadastrar
+      </ion-button>
+
+      <ion-button *ngIf="registerUser == true"  expand="full" shape="round" color="dark" fill="clear" (click)="VoltarLogin()"  tappable>
+        Voltar ao Login
+      </ion-button>
+
+      <ion-button *ngIf="registerUser == false" expand="full" shape="round" color="dark" fill="clear" (click)="alertAlterarMensagem()"  tappable>
+        Alterar senha
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+

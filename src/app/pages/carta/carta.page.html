@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons>
+      <ion-button [routerLink]="['/hiragana']" color="light">
+        <ion-icon size="large" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+      <div class="bloqueioDeClick"></div>
+      <ion-range value="{{p}}"></ion-range>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <input type="text" type="checkbox" id="flip" />
+  <div class="principal animate__animated animate__zoomIn">
+    <div class="bloqueioDeClick2"></div>
+    <label class="carta" for="flip">
+      <div class="frente animate__animated animate__pulse animate__infinite animate__slow">
+        <h1>{{ front }}</h1>
+      </div>
+      <div class="verso">
+        <h2>{{ back }}</h2>
+      </div>
+    </label>
+  </div>
+
+  <div id="monitor" class="ion-padding monitor">
+    <div class="r">
+      <p>{{ resposta }}</p>
+    </div>
+  </div>
+
+  <div class="teclado">
+    <div class="animate__animated animate__zoomIn">
+      <div [ngStyle]="{'display': display1}" class="botoes">
+        <ion-col>
+          <ion-row>
+            <ion-button id="btn0" color="dark" [ngStyle]="{'display': b0}" (click)="responder('あ','btn0')">a</ion-button>
+            <ion-button id="btn5" color="dark" [ngStyle]="{'display': b5}" (click)="responder('か','btn5')">ka</ion-button>
+            <ion-button id="btn10" color="dark" [ngStyle]="{'display': b10}" (click)="responder('さ','btn10')">sa</ion-button>
+            <ion-button id="btn15" color="dark" [ngStyle]="{'display': b15}" (click)="responder('た','btn15')">ta</ion-button>
+            <ion-button id="btn20" color="dark" [ngStyle]="{'display': b20}" (click)="responder('な','btn20')">na</ion-button>
+            <ion-button id="btn25" color="dark" [ngStyle]="{'display': b25}" (click)="responder('は','btn25')">ha</ion-button>
+            <ion-button id="btn30" color="dark" [ngStyle]="{'display': b30}" (click)="responder('ま','btn30')">ma</ion-button>
+            <ion-button id="btn35" color="dark" [ngStyle]="{'display': b35}" (click)="responder('や','btn35')">ya</ion-button>
+            <ion-button id="btn38" color="dark" [ngStyle]="{'display': b38}" (click)="responder('ら','btn38')">ra</ion-button>
+            <ion-button id="btn43" color="dark" [ngStyle]="{'display': b43}" (click)="responder('わ','btn43')">wa</ion-button>
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="btn1" color="dark" [ngStyle]="{'display': b1}" (click)="responder('い','btn1')">i</ion-button>
+            <ion-button id="btn6" color="dark" [ngStyle]="{'display': b6}" (click)="responder('き','btn6')">ki</ion-button>
+            <ion-button id="btn11" color="dark" [ngStyle]="{'display': b11}" (click)="responder('し','btn11')">shi</ion-button>
+            <ion-button id="btn16" color="dark" [ngStyle]="{'display': b16}" (click)="responder('ち','btn16')">chi</ion-button>
+            <ion-button id="btn21" color="dark" [ngStyle]="{'display': b21}" (click)="responder('に','btn21')">ni</ion-button>
+            <ion-button id="btn26" color="dark" [ngStyle]="{'display': b26}" (click)="responder('ひ','btn26')">hi</ion-button>
+            <ion-button id="btn31" color="dark" [ngStyle]="{'display': b31}" (click)="responder('み','btn31')">mi</ion-button>
+            <ion-button id="bt36" fill="clear" [ngStyle]="{'display': bt36}" disabled></ion-button>
+            <ion-button id="btn39" color="dark" [ngStyle]="{'display': b39}" (click)="responder('り','btn39')">ri</ion-button>
+            <ion-button id="bt44" fill="clear" [ngStyle]="{'display': bt44}" disabled></ion-button>
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="btn2" color="dark" [ngStyle]="{'display': b2}" (click)="responder('う','btn2')">u</ion-button>
+            <ion-button id="btn7" color="dark" [ngStyle]="{'display': b7}" (click)="responder('く','btn7')">ku</ion-button>
+            <ion-button id="btn12" color="dark" [ngStyle]="{'display': b12}" (click)="responder('す','btn12')">su</ion-button>
+            <ion-button id="btn17" color="dark" [ngStyle]="{'display': b17}" (click)="responder('つ','btn17')">tsu</ion-button>
+            <ion-button id="btn22" color="dark" [ngStyle]="{'display': b22}" (click)="responder('ぬ','btn22')">nu</ion-button>
+            <ion-button id="btn27" color="dark" [ngStyle]="{'display': b27}" (click)="responder('ふ','btn27')">fu</ion-button>
+            <ion-button id="btn32" color="dark" [ngStyle]="{'display': b32}" (click)="responder('む','btn32')">mu</ion-button>
+            <ion-button id="btn36" color="dark" [ngStyle]="{'display': b36}" (click)="responder('ゆ','btn36')">yu</ion-button>
+            <ion-button id="btn40" color="dark" [ngStyle]="{'display': b40}" (click)="responder('る','btn40')">ru</ion-button>
+
+            <ion-button id="btn45" color="dark" [ngStyle]="{'display': b45}" (click)="responder('ん','btn45')">n</ion-button>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="btn3" color="dark" [ngStyle]="{'display': b3}" (click)="responder('え','btn3')">e</ion-button>
+            <ion-button id="btn8" color="dark" [ngStyle]="{'display': b8}" (click)="responder('け','btn8')">ke</ion-button>
+            <ion-button id="btn13" color="dark" [ngStyle]="{'display': b13}" (click)="responder('せ','btn13')">se</ion-button>
+            <ion-button id="btn18" color="dark" [ngStyle]="{'display': b18}" (click)="responder('て','btn18')">te</ion-button>
+            <ion-button id="btn23" color="dark" [ngStyle]="{'display': b23}" (click)="responder('ね','btn23')">ne</ion-button>
+            <ion-button id="btn28" color="dark" [ngStyle]="{'display': b28}" (click)="responder('へ','btn28')">he</ion-button>
+            <ion-button id="btn33" color="dark" [ngStyle]="{'display': b33}" (click)="responder('め','btn33')">me</ion-button>
+            <ion-button id="bt37" fill="clear" [ngStyle]="{'display': bt37}" disabled></ion-button>
+            <ion-button id="btn41" color="dark" [ngStyle]="{'display': b41}" (click)="responder('れ','btn41')">re</ion-button>
+            <ion-button id="bt44" fill="clear" [ngStyle]="{'display': bt44}" disabled></ion-button>
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="btn4" color="dark" [ngStyle]="{'display': b4}" (click)="responder('お','btn4')">o</ion-button>
+            <ion-button id="btn9" color="dark" [ngStyle]="{'display': b9}" (click)="responder('こ','btn9')">ko</ion-button>
+            <ion-button id="btn14" color="dark" [ngStyle]="{'display': b14}" (click)="responder('そ','btn14')">so</ion-button>
+            <ion-button id="btn19" color="dark" [ngStyle]="{'display': b19}" (click)="responder('と','btn19')">to</ion-button>
+            <ion-button id="btn24" color="dark" [ngStyle]="{'display': b24}" (click)="responder('の','btn24')">no</ion-button>
+            <ion-button id="btn29" color="dark" [ngStyle]="{'display': b29}" (click)="responder('ほ','btn29')">ho</ion-button>
+            <ion-button id="btn34" color="dark" [ngStyle]="{'display': b34}" (click)="responder('も','btn34')">mo</ion-button>
+            <ion-button id="btn37" color="dark" [ngStyle]="{'display': b37}" (click)="responder('よ','btn37')">yo</ion-button>
+            <ion-button id="btn42" color="dark" [ngStyle]="{'display': b42}" (click)="responder('ろ','btn42')">ro</ion-button>
+            <ion-button id="btn44" color="dark" [ngStyle]="{'display': b44}" (click)="responder('を','btn44')">wo</ion-button>
+          </ion-row>
+        </ion-col>
+      </div>
+
+      <div [ngStyle]="{'display': display2}" class="botoes">
+        <ion-col>
+          <ion-row>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="btn46" color="dark" [ngStyle]="{'display': b46}" (click)="responder('が','btn46')">ga</ion-button>
+            <ion-button id="btn51" color="dark" [ngStyle]="{'display': b51}" (click)="responder('ざ','btn51')">za</ion-button>
+            <ion-button id="btn56" color="dark" [ngStyle]="{'display': b56}" (click)="responder('だ','btn56')">da</ion-button>
+            <ion-button id="btn61" color="dark" [ngStyle]="{'display': b61}" (click)="responder('ば','btn61')">ba</ion-button>
+            <ion-button id="btn66" color="dark" [ngStyle]="{'display': b66}" (click)="responder('ぱ','btn66')">pa</ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="btn47" color="dark" [ngStyle]="{'display': b47}" (click)="responder('ぎ','btn47')">gi</ion-button>
+            <ion-button id="btn52" color="dark" [ngStyle]="{'display': b52}" (click)="responder('じ','btn52')">ji</ion-button>
+            <ion-button id="btn57" color="dark" [ngStyle]="{'display': b57}" (click)="responder('ぢ','btn57')">ji</ion-button>
+            <ion-button id="btn62" color="dark" [ngStyle]="{'display': b62}" (click)="responder('び','btn62')">bi</ion-button>
+            <ion-button id="btn67" color="dark" [ngStyle]="{'display': b67}" (click)="responder('ぴ','btn67')">pi</ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="btn48" color="dark" [ngStyle]="{'display': b48}" (click)="responder('ぐ','btn48')">gu</ion-button>
+            <ion-button id="btn53" color="dark" [ngStyle]="{'display': b53}" (click)="responder('ず','btn53')">zu</ion-button>
+            <ion-button id="btn58" color="dark" [ngStyle]="{'display': b58}" (click)="responder('づ','btn58')">zu</ion-button>
+            <ion-button id="btn63" color="dark" [ngStyle]="{'display': b63}" (click)="responder('ぶ','btn63')">bu</ion-button>
+            <ion-button id="btn68" color="dark" [ngStyle]="{'display': b68}" (click)="responder('ぷ','btn68')">pu</ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="btn49" color="dark" [ngStyle]="{'display': b49}" (click)="responder('げ','btn49')">ge</ion-button>
+            <ion-button id="btn54" color="dark" [ngStyle]="{'display': b54}" (click)="responder('ぜ','btn54')">ze</ion-button>
+            <ion-button id="btn59" color="dark" [ngStyle]="{'display': b59}" (click)="responder('で','btn59')">de</ion-button>
+            <ion-button id="btn64" color="dark" [ngStyle]="{'display': b64}" (click)="responder('べ','btn64')">be</ion-button>
+            <ion-button id="btn69" color="dark" [ngStyle]="{'display': b69}" (click)="responder('ぺ','btn69')">pe</ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+          </ion-row>
+
+          <ion-row>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="btn50" color="dark" [ngStyle]="{'display': b50}" (click)="responder('ご','btn50')">go</ion-button>
+            <ion-button id="btn55" color="dark" [ngStyle]="{'display': b55}" (click)="responder('ぞ','btn55')">zo</ion-button>
+            <ion-button id="btn60" color="dark" [ngStyle]="{'display': b60}" (click)="responder('ど','btn60')">do</ion-button>
+            <ion-button id="btn65" color="dark" [ngStyle]="{'display': b65}" (click)="responder('ぼ','btn65')">bo</ion-button>
+            <ion-button id="btn70" color="dark" [ngStyle]="{'display': b70}" (click)="responder('ぽ','btn70')">po</ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+            <ion-button id="bt70" color="dark" [ngStyle]="{'display': bt70}" disabled></ion-button>
+          </ion-row>
+
+        </ion-col>
+      </div>
+
+    </div>
+    <div class="troca" align="center">
+      <ion-button id="btn46" color="dark" [ngStyle]="{'display': b46}" (click)="trocarTeclado()">
+        <ion-icon slot="icon-only" name="swap-horizontal"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+</ion-content>
+
+
+<!-- AUDIO : https://www.learn-japanese-adventure.com/learn-to-speak-japanese-online.html -->

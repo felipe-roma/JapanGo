@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar #cabecalho color="danger">
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+      <ion-title class="text-titulo">
+        RANKING
+      </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="conteudo">
+    <!-- <ion-item-sliding *ngFor=""> -->
+    <ion-list lines="none">
+      <ion-card *ngFor="let colocado of colocados; let i = index">
+        <ion-item *ngIf="i == 0" class="coresOuro animate__animated animate__flipInX">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>
+            {{i+1}}° {{colocado.name}}
+          </ion-label>
+          <ion-badge color="dark" slot="end">Nv. {{colocado.nivel}}</ion-badge>
+        </ion-item>
+        <ion-item *ngIf="i == 1" class="coresPrata animate__animated animate__flipInX animate__slow">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>
+            {{i+1}}° {{colocado.name}}
+          </ion-label>
+          <ion-badge color="dark" slot="end">Nv. {{colocado.nivel}}</ion-badge>
+        </ion-item>
+        <ion-item *ngIf="i == 2" class="coresBronze animate__animated animate__flipInX animate__slow">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>
+            {{i+1}}° {{colocado.name}}
+          </ion-label>
+          <ion-badge color="dark" slot="end">Nv. {{colocado.nivel}}</ion-badge>
+        </ion-item>
+        <ion-item *ngIf="i > 2" color="#000" class="animate__animated animate__flipInX animate__slower">
+          <ion-avatar slot="start">
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label>
+            {{i+1}}° {{colocado.name}}
+          </ion-label>
+          <ion-badge color="dark" slot="end">Nv. {{colocado.nivel}}</ion-badge>
+        </ion-item>
+      </ion-card>
+    </ion-list>
+  <!-- </ion-item-sliding> -->
+  </div>
+</ion-content>
+<!-- <ion-label>Feito por:<br>Felipe Roma<br>Wellison Silva<br>Bruno Oliveira<br>Thiago Rodrigues</ion-label> -->

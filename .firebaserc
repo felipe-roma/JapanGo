@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "banco-dados-tcc": {
+      "hosting": {
+        "app": [
+          "banco-dados-tcc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "banco-dados-tcc"
+  }
+}

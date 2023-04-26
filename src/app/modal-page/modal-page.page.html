@@ -1,0 +1,23 @@
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-button (click)="cancel()">Cancelar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked">Senha</ion-label>
+      <ion-input type="text" [(ngModel)]="senha"></ion-input>
+    </ion-item> -->
+    <ion-button color="dark" expand="block" (click)="confirm()" [strong]="true">Alterar</ion-button>
+  </ion-content>

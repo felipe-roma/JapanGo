@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-title align="center"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-title class="dica" align="center">Memorize o ideograma:</ion-title>
+    <ion-row>
+      <div class="hiragana">
+        {{hiragana[subirNivel]}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-title align="center">Pronúncia:</ion-title>
+      <div class="romaji">
+        {{romaji[subirNivel]}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class="audio">
+        <!-- <ion-icon name="volume-high-outline"></ion-icon> -->
+        <ion-button fill="clear" (click)="ouvir()">
+          <ion-icon color="medium" size="large" slot="icon-only" name="volume-high-sharp"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button fill="clear" [routerLink]="['/hiragana']">VOLTAR</ion-button>
+        </ion-col>
+        <ion-col offset="3">
+          <ion-button fill="clear" (click)="comecar()">PRÓXIMO</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

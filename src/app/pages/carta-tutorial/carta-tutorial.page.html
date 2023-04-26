@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="bloqueioDeClick"></div>   
+    <ion-range id="range" max="90" value="{{p}}"></ion-range>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <input type="text" type="checkbox" id="flip" />
+  <div class="principal animate__animated animate__zoomIn">
+    <div class="bloqueioDeClick2"></div>
+    <label class="carta" for="flip">
+      <div class="frente animate__animated animate__pulse animate__infinite animate__slow">
+        <h1>{{ front }}</h1>
+      </div>
+      <div class="verso">
+        <h2>{{ back }}</h2>
+      </div>
+    </label>
+  </div>
+
+  <div id="monitor" class="ion-padding monitor">
+    <div class="r">
+      <p>{{ resposta }}</p>
+    </div>
+  </div>
+
+  <div class="teclado">
+    <div class="seta animate__animated animate__slideInDown animate__infinite">
+      <img src="../../../assets/seta.png" alt="">
+    </div>
+    <div class="animate__animated animate__fadeInRight">
+      <div [ngStyle]="{'display': display1}" class="botoes">
+        <ion-col>
+          <ion-row>
+            <ion-button color="dark" id="btn1" (click)="responder('あ','btn1')">a</ion-button>
+          </ion-row>
+        </ion-col>
+      </div>
+    </div>
+  </div>
+  <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+    <ng-template>
+      <ion-content align="center" class="ion-padding">PRESSIONE O BOTÃO ABAIXO</ion-content>
+    </ng-template>
+  </ion-popover>
+</ion-content>

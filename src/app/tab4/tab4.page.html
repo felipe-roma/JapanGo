@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="light" class="text-titulo">
+      PERFIL
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-title>
+        <ion-button (click)="profileModal()">
+          <ion-icon color="light" name="settings-sharp"></ion-icon>
+        </ion-button>
+      </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card-perfil">
+    <div class="card-img-perfil">
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    </div>
+    <div class="card-perfil-dados">
+      <ion-card align="center">
+        <ion-card-header>
+          <ion-card-title class="nome-perfil">{{name}}</ion-card-title>
+          <ion-card-title class="email-perfil">{{email}}</ion-card-title>
+          <ion-card-title class="nivel-perfil">Nivel {{nivel}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
+  <div class="button-logout">
+    <ion-button color="dark" (click)="logout()">Sair</ion-button>
+  </div>
+  <div class="ion-padding imagem">
+    <img id="foto" src="./../../assets/img/nivel1.png" alt="" (click)="ouvir()">
+  </div>
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons>
+      <ion-back-button [routerLink]="['/hiragana']"></ion-back-button>
+      <ion-title>Tabela Hiragana</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text color="medium">Contém 46 ideogramas:</ion-text>
+  <div>
+    <img src="../../../assets/tabelaHiragana.png" alt="">
+  </div>
+  <ion-card>
+    <ion-card-content>
+      Algumas letras podem possuir o mesmo som, por exemplo os ideogramas:
+      <hr>お = O<br>を = WO
+      <hr>Ambos se pronunciam "O".
+    </ion-card-content>
+  </ion-card>
+  <div class="centralizar">
+    <div class="imagem">
+      <img src="../../../assets/modificado.PNG" alt="">
+    </div>
+  </div>
+  <ion-card>
+    <ion-card-content>
+      Os sinais " e ° alteram o som da letra, por exemplo os ideogramas:
+      <hr>か = KA<br>が = GA<hr>ou<hr>
+      は = HA<br>ぱ = PA
+      <hr>São iguais porém tem o sinal de modificação para alterar a pronúncia.
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      Sobre o Romaji:<hr>
+      A forma de escrever em português a pronúncia de um ideograma, não tem certo ou errado, é apenas uma representação do som.
+    </ion-card-content>
+  </ion-card>
+</ion-content>

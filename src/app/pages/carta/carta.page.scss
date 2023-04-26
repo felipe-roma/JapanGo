@@ -1,0 +1,147 @@
+ion-range {
+  --bar-background: white; // Fundo da barra
+  --bar-background-active: #383a3e; // Progresso
+  --bar-height: 14px; // Grossura
+  --bar-border-radius: 8px; // Arrendondada
+  --knob-background: #00000000; // Pino
+}
+
+.bloqueioDeClick {
+  // background-color: plum;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  margin-left: 52px;
+}
+
+.principal {
+  // background-color: rgb(251, 86, 86);
+  padding-bottom: 12px;
+  background-color: 255,255,255;
+  width: 100%;
+  height: 45%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.carta {
+  // background-color: greenyellow;
+  width: 50%;
+  height: 80%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  margin-top: 10px;
+}
+
+.frente, .verso {
+  background-color: rgb(249, 255, 186);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border-style: outset;
+  border-width: 6px;
+  border-color: rgb(146, 247, 146);
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.verso {
+  background-color: rgb(255, 225, 161);
+	transform: rotateY(180deg);
+  border-radius: 20px;
+  border-style: outset;
+  border-width: 6px;
+  border-color: rgb(255, 209, 109);
+}
+
+#flip:checked ~ .principal .carta {
+  transform: rotateY(180deg);
+}
+
+#flip {
+	display: none;
+}
+
+.frente h1 {
+  font-size: 3em;
+}
+
+.verso h2 {
+  font-size: 3em;
+}
+
+.bloqueioDeClick2 {
+  // background-color: purple;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.monitor {
+  // background-color: white;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.monitorVerde {
+  background-color: rgb(146, 247, 146);
+  animation: flash;
+  animation-duration: 1s;
+}
+
+.monitorVermelho {
+  background-color: #eb445a;
+  animation: flash;
+  animation-duration: 1s;
+}
+
+.r {
+  position: absolute;
+  font-size: 50px;
+}
+
+.teclado {
+  // background-color: blue;
+  width: 100%;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botoes ion-button {
+    width: 27px;
+    height: 30px;
+    font-size: 11px;
+}
+
+ion-icon {
+  font-size: 20px;
+}
+
+.troca {
+  // background-color: rgb(230, 0, 255);
+  width: fit-content;
+  height: fit-content;
+}

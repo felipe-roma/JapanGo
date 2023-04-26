@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+code {
+  white-space: pre-wrap;
+}
+
+ion-list {
+  background-color: aliceblue;
+}
+
+.conteudo {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+}
+
+ ion-toolbar{
+  --background: orange;
+}
+
+.coresOuro{
+  --background: #dab901;
+}
+.coresPrata{
+  --background: #c0c0c0;
+}
+.coresBronze{
+  --background: #cd7f32;
+}

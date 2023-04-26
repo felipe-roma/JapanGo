@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar #cabecalho color="danger">
+    <ion-title class="text-titulo">
+      ESCRITA
+    </ion-title>
+    <ion-badge class="cabecalho-nivel" color="dark" slot="end">Nv. {{nivel}}</ion-badge>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="conteudo">
+    <ion-list>
+      <ion-card class="animate__animated animate__fadeInRight">
+        <ion-item class="animate__animated animate__pulse animate__infinite animate__delay-3s" color="dark" button detail="true" [routerLink]="['/hiragana']">
+          HIRAGANA
+        </ion-item>
+      </ion-card>
+      <ion-card class="animate__animated animate__fadeInRight animate__delay-1s">
+        <ion-item color="medium" button disabled detail="true">
+          KATAKANA
+        </ion-item>
+      </ion-card>
+      <ion-card class="animate__animated animate__fadeInRight animate__delay-2s">
+        <ion-item color="medium" button disabled detail="true">
+          KANJI
+        </ion-item>
+      </ion-card>
+    </ion-list>
+  </div>
+</ion-content>
