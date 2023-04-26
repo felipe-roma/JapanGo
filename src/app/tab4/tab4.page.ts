@@ -5,6 +5,8 @@ import { AuthService } from '../services/auth.service';
 import { ModalPagePage } from '../modal-page/modal-page.page';
 import { Capacitor } from '@capacitor/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
+import { Firestore, collection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-tab4',
@@ -20,17 +22,23 @@ export class Tab4Page {
   name: any
   userprofile: any = {}
   image: any;
+  public uid: any
+  imagePerfil: any
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
     private router: Router,
     private authService: AuthService,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private storage: Storage,
+    private firestore: Firestore
   ) {}
 
   ngOnInit() {
     this.authService.getUserProfile().subscribe((data) => {
       this.userprofile = data
+      this.uid = this.userprofile.uid;
+      console.log(this.uid)
       this.nivel = this.userprofile.nivel
       this.name = this.userprofile.name
       this.email = this.userprofile.email
@@ -47,31 +55,7 @@ export class Tab4Page {
      await modal.present();
   }
 
-  async profile() {
-    const actionSheet = await this.actionSheetCtrl.create({
-      header: this.userprofile.email,
-      buttons: [
-        {
-          text: 'Ranking Geral',
-          data: {
-            action: 'cancel',
-          },
-        },
-        {
-          text: 'Sair',
-          role: '',
-          handler: () => {
-            this.logout()
-          },
-        },
-      ],
-    })
-
-    await actionSheet.present()
-
-    const result = await actionSheet.onDidDismiss()
-    this.result = JSON.stringify(result, null, 2)
-  }
+  
 
   async logout() {
     this.botao()
@@ -116,8 +100,66 @@ export class Tab4Page {
       });
       console.log('iamge', image);
       this.image = image.dataUrl
+      const blob = this.dataURLtoBlob(image.dataUrl);
+      const url = await this.uploadImage(blob, image)
+      console.log(url)
     } catch(e) {
       console.log(e)
     }
   }
+
+  dataURLtoBlob(dataurl: any) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--) {
+      u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new Blob([u8arr], {type:mime})
+  }
+
+  async uploadImage(blob: any, imageData: any) {
+    try{
+      const currentDate = Date.now();
+      const filePath = `imagePerfil/${currentDate}.${imageData.format}`;
+      const fileRef = ref(this.storage, filePath);
+      const task = await uploadBytes(fileRef, blob);
+      console.log('task: ', task);
+      const url = getDownloadURL(fileRef);
+      this.imagePerfil = url;
+      const response = await this.authService.userCreate();
+      console.log(response)
+      return url;
+    } catch(e) {
+      throw(e);
+    }
+  }
+
+  // async addDocument() {
+  //   let numDocumentos = 0;
+  //   const colecao = collection(this.firestore, 'users');
+  //   getDocs(colecao).then((querySnapshot) => {
+  //     numDocumentos = querySnapshot.size;
+  //     try {
+
+  //       const userId = this.userCreateId
+  //       const name = `Usuario-0${numDocumentos + 1}`
+  //     const email = this.userCreateEmail;
+  //     const nivel = 1;
+  //     const imagePerfil = '';
+
+  //     const userDocRef = doc(this.firestore, `users/${userId}`);
+  //     setDoc(userDocRef, {
+  //       email,
+  //       nivel,
+  //       name,
+  //       imagePerfil
+  //     })
+  //     } catch (error) {
+
+  //     }
+  //   }).catch((error) => {
+  //     console.log(`Erro ao obter o número de documentos: ${error}`);
+  //   });
+
+  // }
 }

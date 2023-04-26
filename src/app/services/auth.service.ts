@@ -81,12 +81,14 @@ export class AuthService {
           const name = `Usuario-0${numDocumentos + 1}`
         const email = this.userCreateEmail;
         const nivel = 1;
+        const imagePerfil = '';
 
         const userDocRef = doc(this.firestore, `users/${userId}`);
         setDoc(userDocRef, {
           email,
           nivel,
-          name
+          name,
+          imagePerfil
         })
         } catch (error) {
 
