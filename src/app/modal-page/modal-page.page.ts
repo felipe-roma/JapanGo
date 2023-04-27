@@ -23,6 +23,9 @@ export class ModalPagePage implements OnInit {
   profileAuth: any = {}
   userNivel: any
 
+  image: any;
+  imagePerfil: any;
+
   constructor(
     private modalCtrl: ModalController,
     private authService: AuthService,
@@ -35,6 +38,8 @@ export class ModalPagePage implements OnInit {
       this.name = this.userprofile.name
       this.email = this.userprofile.email
       this.userNivel = this.userprofile.nivel
+      this.image = this.userprofile.imagePerfil
+
     })
   }
 
@@ -44,29 +49,42 @@ export class ModalPagePage implements OnInit {
 
   async confirm() {
     this.botao()
-    
+
     const auth = getAuth()
     const user = auth.currentUser
 
     this.userNivel = this.userprofile.nivel
     this.profileAuth = user
-    
+
     try {
         var nivel = this.userNivel
         const email = this.email
         const name = this.name
         console.log(nivel);
-        
+        const imagePerfil = this.image
         const userDocRef = doc(this.firestore, `users/${this.profileAuth.uid}`)
         await setDoc(userDocRef, {
           nivel,
           email,
           name,
+          imagePerfil
         })
     } catch (error) {
       console.log('Erro', 'Erro na atualizacao no nivel')
     }
     this.modalCtrl.dismiss();
+  }
+
+  async editarFoto() {
+    try {
+    let foto = await this.authService.takePicture();
+      if(foto) {
+        this.image = foto
+        console.log(foto);
+      }
+    } catch(e){
+
+    }
   }
 
   botao() {

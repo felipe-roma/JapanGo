@@ -16,7 +16,8 @@
       <ion-card *ngFor="let colocado of colocados; let i = index">
         <ion-item *ngIf="i == 0" class="coresOuro animate__animated animate__flipInX">
           <ion-avatar slot="start">
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="!colocado.imagePerfil" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="colocado.imagePerfil" alt="Silhouette of a person's head" [src]="colocado.imagePerfil" />
           </ion-avatar>
           <ion-label>
             {{i+1}}° {{colocado.name}}
@@ -25,7 +26,8 @@
         </ion-item>
         <ion-item *ngIf="i == 1" class="coresPrata animate__animated animate__flipInX animate__slow">
           <ion-avatar slot="start">
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="!colocado.imagePerfil" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="colocado.imagePerfil" alt="Silhouette of a person's head" [src]="colocado.imagePerfil" />
           </ion-avatar>
           <ion-label>
             {{i+1}}° {{colocado.name}}
@@ -34,7 +36,8 @@
         </ion-item>
         <ion-item *ngIf="i == 2" class="coresBronze animate__animated animate__flipInX animate__slow">
           <ion-avatar slot="start">
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="!colocado.imagePerfil" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="colocado.imagePerfil" alt="Silhouette of a person's head" [src]="colocado.imagePerfil" />
           </ion-avatar>
           <ion-label>
             {{i+1}}° {{colocado.name}}
@@ -43,7 +46,8 @@
         </ion-item>
         <ion-item *ngIf="i > 2" color="#000" class="animate__animated animate__flipInX animate__slower">
           <ion-avatar slot="start">
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="!colocado.imagePerfil" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="colocado.imagePerfil" alt="Silhouette of a person's head" [src]="colocado.imagePerfil" />
           </ion-avatar>
           <ion-label>
             {{i+1}}° {{colocado.name}}

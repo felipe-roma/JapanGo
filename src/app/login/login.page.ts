@@ -70,13 +70,6 @@ export class LoginPage implements OnInit {
     return this.credentials.get('password')
   }
 
-  // loginWithGoogle() {
-  //   this.authService.loginWithGoogle().then((result) => {
-  //     console.log(result);
-  //   }).catch((error) => {
-  //     console.log('Erro')
-  //   });
-  // }
 
   async login() {
     this.botao()
@@ -120,47 +113,6 @@ export class LoginPage implements OnInit {
 
   async register2() {
         this.registerUser = true;
-    // const alert = await this.alertCtrl.create({
-    //   header: 'Criar conta',
-    //   inputs: [
-
-    //     {
-    //       name: 'email',
-    //       placeholder: 'E-mail',
-    //       type: 'text',
-    //     },
-    //     {
-    //       name: 'password',
-    //       placeholder: 'Senha',
-    //       type: 'password',
-    //     },
-    //   ],
-    //   buttons: [
-    //     {
-    //       text: 'Cancelar',
-    //       role: 'cancel',
-    //     },
-    //     {
-    //       text: 'Cadastrar',
-    //       handler: async () => {
-    //         const loading = await this.loadingController.create()
-    //         await loading.present()
-
-    //         const user = await this.authService.register(this.credentials.value)
-    //         await loading.dismiss()
-
-    //         if (user) {
-    //           // this.notes.push =user.user.uid, user.user.uid;
-    //           // console.log(this.notes);
-    //           this.router.navigateByUrl('', { replaceUrl: true })
-    //         } else {
-    //           this.showAlert('Registro falhou', 'Tente Novamente')
-    //         }
-    //       },
-    //     },
-    //   ],
-    // })
-    // await alert.present()
   }
 
   VoltarLogin() {

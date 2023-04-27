@@ -7,6 +7,12 @@
   </ion-header>
 
   <ion-content class="ion-padding">
+    <ion-button fill="clear" class="edit-perfil" (click)="editarFoto()">
+      <ion-avatar>
+        <img *ngIf="!image" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <img *ngIf="image" alt="Silhouette of a person's head" [src]="image" />
+      </ion-avatar>
+    </ion-button>
     <ion-item>
       <ion-label position="stacked">Nome</ion-label>
       <ion-input type="text" [(ngModel)]="name"></ion-input>

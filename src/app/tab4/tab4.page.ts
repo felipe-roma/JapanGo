@@ -42,6 +42,8 @@ export class Tab4Page {
       this.nivel = this.userprofile.nivel
       this.name = this.userprofile.name
       this.email = this.userprofile.email
+      this.imagePerfil = this.userprofile.imagePerfil
+      console.log(this.imagePerfil)
       this.alterarImagem()
     })
   }
@@ -55,7 +57,7 @@ export class Tab4Page {
      await modal.present();
   }
 
-  
+
 
   async logout() {
     this.botao()
@@ -88,78 +90,51 @@ export class Tab4Page {
     audioAbertura.play()
   }
 
-  async takePicture() {
-    try {
-      if(Capacitor.getPlatform() != 'web') await Camera.requestPermissions();
-      const image = await Camera.getPhoto({
-        quality: 90,
-        //allowEditing: false,
-        source: CameraSource.Prompt,
-        width: 600,
-        resultType: CameraResultType.DataUrl
-      });
-      console.log('iamge', image);
-      this.image = image.dataUrl
-      const blob = this.dataURLtoBlob(image.dataUrl);
-      const url = await this.uploadImage(blob, image)
-      console.log(url)
-    } catch(e) {
-      console.log(e)
-    }
-  }
-
-  dataURLtoBlob(dataurl: any) {
-    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
-    bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
-    while(n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new Blob([u8arr], {type:mime})
-  }
-
-  async uploadImage(blob: any, imageData: any) {
-    try{
-      const currentDate = Date.now();
-      const filePath = `imagePerfil/${currentDate}.${imageData.format}`;
-      const fileRef = ref(this.storage, filePath);
-      const task = await uploadBytes(fileRef, blob);
-      console.log('task: ', task);
-      const url = getDownloadURL(fileRef);
-      this.imagePerfil = url;
-      const response = await this.authService.userCreate();
-      console.log(response)
-      return url;
-    } catch(e) {
-      throw(e);
-    }
-  }
-
-  // async addDocument() {
-  //   let numDocumentos = 0;
-  //   const colecao = collection(this.firestore, 'users');
-  //   getDocs(colecao).then((querySnapshot) => {
-  //     numDocumentos = querySnapshot.size;
-  //     try {
-
-  //       const userId = this.userCreateId
-  //       const name = `Usuario-0${numDocumentos + 1}`
-  //     const email = this.userCreateEmail;
-  //     const nivel = 1;
-  //     const imagePerfil = '';
-
-  //     const userDocRef = doc(this.firestore, `users/${userId}`);
-  //     setDoc(userDocRef, {
-  //       email,
-  //       nivel,
-  //       name,
-  //       imagePerfil
-  //     })
-  //     } catch (error) {
-
-  //     }
-  //   }).catch((error) => {
-  //     console.log(`Erro ao obter o número de documentos: ${error}`);
-  //   });
-
+  // async takePicture() {
+  //   try {
+  //     if(Capacitor.getPlatform() != 'web') await Camera.requestPermissions();
+  //     const image = await Camera.getPhoto({
+  //       quality: 90,
+  //       //allowEditing: false,
+  //       source: CameraSource.Prompt,
+  //       width: 600,
+  //       resultType: CameraResultType.DataUrl
+  //     });
+  //     console.log('iamge', image);
+  //     this.image = image.dataUrl
+  //     const blob = this.dataURLtoBlob(image.dataUrl);
+  //     const url = await this.uploadImage(blob, image)
+  //     console.log(url)
+  //   } catch(e) {
+  //     console.log(e)
+  //   }
   // }
+
+  // dataURLtoBlob(dataurl: any) {
+  //   var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+  //   bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+  //   while(n--) {
+  //     u8arr[n] = bstr.charCodeAt(n);
+  //   }
+  //   return new Blob([u8arr], {type:mime})
+  // }
+
+  // async uploadImage(blob: any, imageData: any) {
+  //   try{
+  //     const currentDate = Date.now();
+  //     const filePath = `imagePerfil/${currentDate}.${imageData.format}`;
+  //     const fileRef = ref(this.storage, filePath);
+  //     const task = await uploadBytes(fileRef, blob);
+  //     console.log('task: ', task);
+  //     const url = getDownloadURL(fileRef);
+  //     this.imagePerfil = url;
+  //     const response = await this.authService.userCreate();
+  //     console.log(response)
+  //     return url;
+  //   } catch(e) {
+  //     throw(e);
+  //   }
+  // }
+
+
 }
