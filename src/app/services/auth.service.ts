@@ -163,6 +163,9 @@ export class AuthService {
     }
 
     // ---> Metodo para Salvar Imagem no Firebase Storage < ---- //
+
+
+
     async takePicture() {
       try {
         if(Capacitor.getPlatform() != 'web') await Camera.requestPermissions();
