@@ -10,6 +10,9 @@
     <ion-button fill="clear" class="edit-perfil" (click)="editarFoto()">
       <ion-avatar>
         <img *ngIf="!image" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <ion-badge class="editFoto" color="danger">
+          <ion-icon name="brush" class="iconEditFoto"></ion-icon>
+        </ion-badge>
         <img *ngIf="image" alt="Silhouette of a person's head" [src]="image" />
       </ion-avatar>
     </ion-button>
