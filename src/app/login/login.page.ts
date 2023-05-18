@@ -193,6 +193,7 @@ export class LoginPage implements OnInit {
       '../../../assets/audio/somDeFundo/botao-katana.mp3',
     )
     audioAbertura.play()
+    audioAbertura.volume = 0.02;
   }
 
   tocar() {

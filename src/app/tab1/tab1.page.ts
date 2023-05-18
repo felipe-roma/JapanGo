@@ -13,6 +13,7 @@ export class Tab1Page {
   nivel: any
   userprofile: any = {}
   public mudo = true
+  musicaOn = true
 
   constructor(
     private actionSheetCtrl: ActionSheetController,
@@ -21,7 +22,7 @@ export class Tab1Page {
   ) {}
 
   ngOnInit() {
-    this.tocar()
+    this.tocar(this.musicaOn)
     this.authService.getUserProfile().subscribe((data) => {
       this.userprofile = data
       this.nivel = this.userprofile.nivel
@@ -62,9 +63,10 @@ export class Tab1Page {
     this.router.navigateByUrl('login', { replaceUrl: true })
   }
 
-  tocar() {
-    this.botao
+  tocar(musicaOn: any) {
     const audio = new Audio('../../../assets/audio/somDeFundo/Lobby.mp3')
+   if(musicaOn === true) {
+    this.botao
     audio.play()
     audio.volume = 0.1
     audio.loop = true
@@ -73,6 +75,9 @@ export class Tab1Page {
     // } else {     
     //   this.mudo = !this.mudo
     // }
+   }else{
+    audio.pause()
+   }
   }
 
   botao() {
@@ -80,5 +85,6 @@ export class Tab1Page {
       '../../../assets/audio/somDeFundo/botao-katana.mp3',
     )
     audioAbertura.play()
+    audioAbertura.volume = 0.02;
   }
 }

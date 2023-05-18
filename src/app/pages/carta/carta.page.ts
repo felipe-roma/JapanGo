@@ -446,6 +446,8 @@ export class CartaPage implements OnInit {
   }
 
   responder(r: string, id: string) {
+    var teclado = document.querySelector('.tampar')
+    teclado?.classList.add('bloqueioDeClick3')
     this.btn()
     const e = document.querySelector(`#${id}`)
     e?.classList.add('animate__animated', 'animate__zoomOut', 'animate__fast')
@@ -456,6 +458,7 @@ export class CartaPage implements OnInit {
       setTimeout(() => {
         this.resposta = ''
         this.desvirar()
+        teclado?.classList.remove('bloqueioDeClick3')
         this.contador++
         if (this.contador == 4) {
           this.random = this.subirNivel
@@ -693,12 +696,14 @@ export class CartaPage implements OnInit {
         }
         const email = this.profile.email
         const name = this.profile.name
+        const imagePerfil = this.profile.imagePerfil
 
         const userDocRef = doc(this.firestore, `users/${this.profileAuth.uid}`)
         await setDoc(userDocRef, {
           nivel,
           email,
           name,
+          imagePerfil
         })
       }
     } catch (error) {
@@ -711,6 +716,7 @@ export class CartaPage implements OnInit {
       '../../../assets/audio/somDeFundo/botao-katana.mp3',
     )
     audioAbertura.play()
+    audioAbertura.volume = 0.02;
   }
 
   btn() {

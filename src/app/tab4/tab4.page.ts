@@ -7,6 +7,7 @@ import { Capacitor } from '@capacitor/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Storage, getDownloadURL, ref, uploadBytes } from '@angular/fire/storage';
 import { Firestore, collection } from '@angular/fire/firestore';
+import { Tab1Page } from '../tab1/tab1.page';
 
 @Component({
   selector: 'app-tab4',
@@ -31,7 +32,7 @@ export class Tab4Page {
     private authService: AuthService,
     private modalCtrl: ModalController,
     private storage: Storage,
-    private firestore: Firestore
+    private firestore: Firestore,
   ) {}
 
   ngOnInit() {
@@ -57,7 +58,9 @@ export class Tab4Page {
      await modal.present();
   }
 
-
+  async musicaOff() {
+    let musicaOn = false
+  }
 
   async logout() {
     this.botao()
@@ -88,6 +91,7 @@ export class Tab4Page {
       '../../../assets/audio/somDeFundo/botao-katana.mp3',
     )
     audioAbertura.play()
+    audioAbertura.volume = 0.02;
   }
 
   // async takePicture() {
